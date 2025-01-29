@@ -1,0 +1,11 @@
+- name: Playbook for Windows Host
+  hosts: win
+  tasks:
+    - name: Create a folder
+      ansible.windows.win_file:
+        path: 'C:\ansible-created'
+        state: directory
+    - name: Create a new file with some static content
+      ansible.builtin.copy:
+        dest: 'C:\ansible-created\hello.txt'
+        content: Hello World!! Created by Ansible
